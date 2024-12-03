@@ -1,0 +1,81 @@
+﻿@page
+@model training_asp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+<div class="text-center">
+    <h2>Тренировочная система</h2>
+
+    <form method="post" class="form-group">
+        <div class="mb-3">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="Login" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="Password" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+
+    @* Сообщение об ошибке, если логин или пароль неправильные *@
+    @if (!ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            Неправильный логин или пароль.
+        </div>
+    }
+</div>
+
+
+<style>
+    .text-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .login-form {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        text-align: left;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
